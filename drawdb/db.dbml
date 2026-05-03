@@ -1,0 +1,15 @@
+Table users{
+    id int [pk]
+    name varchar
+}
+
+Table notes{
+    id int [pk]
+    //Un uno a muchos
+    user_id int [ref: > user.id]
+    title varchar
+    content text
+    created_at timestamp
+    updated_at timestamp
+}
+

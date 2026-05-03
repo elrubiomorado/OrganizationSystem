@@ -1,0 +1,39 @@
+{
+  "version": "1.0.0",
+  "darkMode": false,
+  "gridEnabling": false,
+  "detailLevel": "All",
+  "tablePositions": [
+    {
+      "name": "user",
+      "schemaName": "public",
+      "x": 137,
+      "y": 75
+    },
+    {
+      "name": "notes",
+      "schemaName": "public",
+      "x": -100,
+      "y": -105
+    }
+  ],
+  "tableGroupCollapseStates": [],
+  "stickyNoteLayouts": [],
+  "referencePaths": [
+    {
+      "firstFieldNames": [
+        "id"
+      ],
+      "firstTableName": "user",
+      "firstSchemaName": "public",
+      "firstRelation": "1",
+      "secondFieldNames": [
+        "user_id"
+      ],
+      "secondTableName": "notes",
+      "secondSchemaName": "public",
+      "secondRelation": "*",
+      "checkPoints": []
+    }
+  ]
+}
