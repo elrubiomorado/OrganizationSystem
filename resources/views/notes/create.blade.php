@@ -24,10 +24,16 @@
                                 <input type="text" class="form-control" id="title" placeholder="Enter Title"
                                     value="{{ old('title') }}" name="title">
                             </div>
+                            @error('title')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
                             <div class="form-group">
                                 <label for="content">Content</label>
                                 <textarea class="form-control" rows="3" placeholder="Enter the note content..." name="content" id="content">{{ old('content') }}</textarea>
                             </div>
+                            @error('content')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
                         <!-- /.card-body -->
 
