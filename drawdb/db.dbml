@@ -6,7 +6,7 @@ Table users{
 Table notes{
     id int [pk]
     //Un uno a muchos
-    user_id int [ref: > user.id]
+    user_id int [ref: > users.id]
     title varchar
     content text
     created_at timestamp

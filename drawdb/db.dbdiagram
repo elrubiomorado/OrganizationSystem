@@ -5,16 +5,16 @@
   "detailLevel": "All",
   "tablePositions": [
     {
-      "name": "user",
+      "name": "users",
       "schemaName": "public",
-      "x": 137,
-      "y": 75
+      "x": -393.58495187666773,
+      "y": -85.57856358822744
     },
     {
       "name": "notes",
       "schemaName": "public",
-      "x": -100,
-      "y": -105
+      "x": -421,
+      "y": -330
     }
   ],
   "tableGroupCollapseStates": [],
@@ -24,7 +24,7 @@
       "firstFieldNames": [
         "id"
       ],
-      "firstTableName": "user",
+      "firstTableName": "users",
       "firstSchemaName": "public",
       "firstRelation": "1",
       "secondFieldNames": [
