@@ -55,4 +55,15 @@
 @section('adminlte_js')
     @stack('js')
     @yield('js')
+    @if (session('message') && session('icon'))
+        <script>
+            Swal.fire({
+                position: 'center',
+                icon: '{{ session('icon') }}',
+                title: '{{ session('message') }}',
+                showConfirmButton: false,
+                timer: 4000
+            });
+        </script>
+    @endif
 @stop

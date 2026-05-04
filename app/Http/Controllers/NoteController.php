@@ -38,7 +38,8 @@ class NoteController extends Controller
 
         return redirect()
             ->route('admin.notes.index')
-            ->with('success', 'Note created successfully');
+            ->with('message', 'Note created successfully')
+            ->with('icon', 'success');
     }
 
     /**
