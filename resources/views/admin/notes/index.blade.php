@@ -31,24 +31,42 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
+                                    <th>Title</th>
                                     <th>User</th>
                                     <th>Date</th>
                                     <th>Category</th>
-                                    <th>Title</th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @forelse ($notes as $note)
                                     <tr data-widget="expandable-table" aria-expanded="false">
                                         <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $note->title }}</td>
                                         <td>{{ $note->user->name }}</td>
                                         <td>{{ $note->created_at }}</td>
                                         <td>Todo</td>
-                                        <td>{{ $note->title }}</td>
+                                        <th class="d-flex justify-content-around" onclick="event.stopPropagation()">
+                                            <a href="{{ route('admin.notes.edit', $note) }}"
+                                                class="btn btn-sm btn-warning me-1">
+                                                <i class="fas fa-edit"></i>
+                                                Edit
+                                            </a>
+                                            <form action="{{ route('admin.notes.destroy', $note) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+
+                                                <button type="submit" class="btn btn-sm btn-danger"><i
+                                                        class="fas fa-trash"></i>Delete</button>
+                                            </form>
+                                        </th>
                                     </tr>
                                     <tr class="expandable-body d-none">
                                         <td colspan="10">
-                                            <p>{{ $note->content }}</p>
+                                            <div class="p-3 bg-light rounded">
+                                                {!! $note->content !!}
+                                            </div>
+
                                         </td>
                                     </tr>
                                 @empty
@@ -56,8 +74,6 @@
                                         <td colspan="5">No found notes</td>
                                     </tr>
                                 @endforelse
-
-
                             </tbody>
                         </table>
                     </div>

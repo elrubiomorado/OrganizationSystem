@@ -6,6 +6,7 @@ use App\Http\Requests\NoteRequest;
 use App\Models\Note;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class NoteController extends Controller
 {
@@ -14,16 +15,16 @@ class NoteController extends Controller
 
      * Show the form for creating a new resource.
      */
-     public function index()
+    public function index(): View
     {
         //
         $notes = Note::paginate(10);
-        return view('notes.index', compact('notes'));
+        return view('admin.notes.index', compact('notes'));
     }
-    public function create()
+    public function create(): View
     {
         //
-        return view('notes.create');
+        return view('admin.notes.create');
     }
 
     /**
@@ -38,8 +39,10 @@ class NoteController extends Controller
 
         return redirect()
             ->route('admin.notes.index')
-            ->with('message', 'Note created successfully')
-            ->with('icon', 'success');
+            ->with([
+                'message' => 'Note created successfully',
+                'icon' => 'success',
+            ]);
     }
 
     /**
@@ -53,24 +56,39 @@ class NoteController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Note $note)
+    public function edit(Note $note): View
     {
         //
+
+        return view('admin.notes.edit', compact('note'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Note $note)
+    public function update(NoteRequest $request, Note $note): RedirectResponse
     {
         //
+        $note->update($request->validated());
+        return redirect()
+            ->route('admin.notes.index')
+            ->with([
+                'message' => 'Note updated successfully',
+                'icon' => 'success',
+            ]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Note $note)
+    public function destroy(Note $note): RedirectResponse
     {
-        //
+        $note->delete();
+        return redirect()
+            ->route('admin.notes.index')
+            ->with([
+                'message' => 'Note deleted successfully',
+                'icon' => 'success',
+            ]);
     }
 }
