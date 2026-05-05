@@ -15,6 +15,18 @@
       "schemaName": "public",
       "x": -421,
       "y": -330
+    },
+    {
+      "name": "tags",
+      "schemaName": "public",
+      "x": -909.9543289775427,
+      "y": -330
+    },
+    {
+      "name": "note_tag",
+      "schemaName": "public",
+      "x": -667.9805093613331,
+      "y": -330
     }
   ],
   "tableGroupCollapseStates": [],
@@ -31,6 +43,36 @@
         "user_id"
       ],
       "secondTableName": "notes",
+      "secondSchemaName": "public",
+      "secondRelation": "*",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id"
+      ],
+      "firstTableName": "notes",
+      "firstSchemaName": "public",
+      "firstRelation": "1",
+      "secondFieldNames": [
+        "note_id"
+      ],
+      "secondTableName": "note_tag",
+      "secondSchemaName": "public",
+      "secondRelation": "*",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id"
+      ],
+      "firstTableName": "tags",
+      "firstSchemaName": "public",
+      "firstRelation": "1",
+      "secondFieldNames": [
+        "tag_id"
+      ],
+      "secondTableName": "note_tag",
       "secondSchemaName": "public",
       "secondRelation": "*",
       "checkPoints": []
